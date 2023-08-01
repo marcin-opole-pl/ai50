@@ -126,19 +126,7 @@ def shortest_path(source, target):
             # Check if next move is not currently in frontier or already checked
             if not frontier.contains_state(state) and state not in explored:
                 child = Node(state=state, parent=node, action=action)
-                # Check if child is target
-                if child.state == target:
-                    # create the path
-                    path = []
-                    # do until source is reached
-                    while child.parent is not None:
-                        path.append((child.action, child.state))
-                        # recursive move towards source
-                        child = child.parent
-                    # reverse order
-                    path.reverse()
-                    return path
-                # Child is not target - add to the frontier
+                # Add child to the frontier
                 frontier.add(child)
 
 def person_id_for_name(name):
